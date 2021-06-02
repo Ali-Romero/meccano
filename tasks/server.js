@@ -2,8 +2,9 @@ const browserSync = require('browser-sync').create()
 const { watch } = require('gulp')
 
 const config = {
+  startPath : '/',
   server: {
-      baseDir: 'dest/'
+    baseDir: 'dest/',
   },
   notify: false
 }
