@@ -2,8 +2,8 @@ const { task, series, parallel } = require('gulp')
 const clean = require('./tasks/clean')
 const logger = require('./tasks/logger')
 const server = require('./tasks/server')
-const sass = require('./tasks/sass')
-const sassWatch = require('./tasks/sassWatch')
+const stylus = require('./tasks/stylus')
+const stylusWatch = require('./tasks/stylusWatch')
 const pug = require('./tasks/pug')
 const pugWatch = require('./tasks/pugWatch')
 const images = require('./tasks/images')
@@ -18,8 +18,8 @@ const jsWatch = require('./tasks/jsWatch')
 task('clean', clean)
 task('logger', logger)
 task('server', server)
-task('sass', sass)
-task('sass:watch', sassWatch)
+task('stylus', stylus)
+task('stylus:watch', stylusWatch)
 task('pug', pug)
 task('pug:watch', pugWatch)
 task('images', images)
@@ -34,8 +34,8 @@ task('js:watch', jsWatch)
 function dev() {
   return series(
     'clean',
-    parallel('sass', 'pug', 'images', 'icons', 'assets', 'js'),
-    parallel('sass:watch', 'pug:watch', 'images:watch', 'icons:watch', 'assets:watch', 'js:watch'),
+    parallel('stylus', 'pug', 'images', 'icons', 'assets', 'js'),
+    parallel('stylus:watch', 'pug:watch', 'images:watch', 'icons:watch', 'assets:watch', 'js:watch'),
     'logger',
     'server',
   )
@@ -44,7 +44,7 @@ function dev() {
 function prod() {
   return series(
     'clean',
-    parallel('sass', 'pug', 'images', 'icons', 'assets', 'js'),
+    parallel('stylus', 'pug', 'images', 'icons', 'assets', 'js'),
   )
 }
 

@@ -1,8 +1,8 @@
 const { watch } = require('gulp')
-const sass = require('./sass')
+const stylus = require('./stylus')
 
 module.exports = function(done) {
-  watch(['source/sass/**/*.sass'], sass)
+  watch(['source/stylus/**/*.styl'], stylus)
 
   done()
 }
