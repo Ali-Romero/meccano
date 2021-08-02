@@ -1,3 +1,4 @@
+const path = require('path')
 const { src, dest } = require('gulp')
 const gulpif = require('gulp-if')
 const cssmin = require('gulp-cssmin')
@@ -8,6 +9,8 @@ const gcmq = require('gulp-group-css-media-queries')
 
 const config = {
   use: [rupture()],
+  include: [path.join(__dirname, '..', 'node_modules')],
+  'include css': true,
 }
 
 const production = process.env.NODE_ENV === 'production'
