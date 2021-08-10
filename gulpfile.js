@@ -16,6 +16,7 @@ const js = require('./tasks/js')
 const jsWatch = require('./tasks/jsWatch')
 const svgSprite = require('./tasks/svgSprite')
 const svgSpriteWatch = require('./tasks/svgSpriteWatch')
+const deploy = require('./tasks/deploy')
 
 task('clean', clean)
 task('logger', logger)
@@ -34,6 +35,7 @@ task('js', js)
 task('js:watch', jsWatch)
 task('svgSprite', svgSprite)
 task('svgSprite:watch', svgSpriteWatch)
+task('deploy', deploy)
 
 function dev() {
   return series(
@@ -51,5 +53,7 @@ function prod() {
     parallel('stylus', 'pug', 'images', 'icons', 'assets', 'js', 'svgSprite'),
   )
 }
+
+exports.deploy = series('deploy')
 
 exports.default = process.env.NODE_ENV === 'development' ? dev() : prod()
