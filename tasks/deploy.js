@@ -6,6 +6,6 @@ const options = {}
 
 module.exports = function() {
   return gulp.src('dest/**/*')
-    .pipe(replace('"/', `"${process.env.BASE_URL}`))
+    .pipe(replace(/\"\/([a-zA-Z])/g, `"${process.env.BASE_URL}$1`))
     .pipe(ghPages(options));
 }
