@@ -19,3 +19,16 @@ $ npm run prod
 ```bash
 $ npm run serve
 ```
+
+---
+
+## Создание нового проекта
+
+```bash
+$ mkdir project_name
+$ cd project_name
+$ git clone https://github.com/Ali-Romero/meccano.git .
+$ rm -rf .git
+$ git init
+$ npm install
+```
