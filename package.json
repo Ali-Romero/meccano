@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp",
     "prod": "cross-env NODE_ENV=production gulp",
+    "deploy": "cross-env NODE_ENV=production gulp deploy",
     "serve": "serve ./dest -p 3000"
   },
   "devDependencies": {
@@ -14,6 +15,7 @@
     "gulp": "^4.0.2",
     "gulp-cssmin": "^0.2.0",
     "gulp-filter": "^7.0.0",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-iconfont": "^11.0.0",
     "gulp-iconfont-css": "^3.0.0",
     "gulp-if": "^3.0.0",
