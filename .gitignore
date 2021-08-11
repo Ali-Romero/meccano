@@ -61,6 +61,7 @@ typings/
 
 # generate
 dest
+.publish
 
 # vuepress build output
 .vuepress/dist
