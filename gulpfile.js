@@ -57,7 +57,7 @@ function prod() {
 function deploy() {
   return series(
     'clean',
-    parallel('stylus', 'pug', 'images', 'icons', 'assets', 'js'),
+    parallel('stylus', 'pug', 'images', 'icons', 'assets', 'js', 'svgSprite'),
     'deploy'
   )
 }
