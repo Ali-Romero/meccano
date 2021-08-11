@@ -14,6 +14,8 @@ const assets = require('./tasks/assets')
 const assetsWatch = require('./tasks/assetsWatch')
 const js = require('./tasks/js')
 const jsWatch = require('./tasks/jsWatch')
+const svgSprite = require('./tasks/svgSprite')
+const svgSpriteWatch = require('./tasks/svgSpriteWatch')
 const deployTask = require('./tasks/deploy')
 
 task('clean', clean)
@@ -31,13 +33,15 @@ task('assets', assets)
 task('assets:watch', assetsWatch)
 task('js', js)
 task('js:watch', jsWatch)
+task('svgSprite', svgSprite)
+task('svgSprite:watch', svgSpriteWatch)
 task('deploy', deployTask)
 
 function dev() {
   return series(
     'clean',
-    parallel('sass', 'pug', 'images', 'icons', 'assets', 'js'),
-    parallel('sass:watch', 'pug:watch', 'images:watch', 'icons:watch', 'assets:watch', 'js:watch'),
+    parallel('sass', 'pug', 'images', 'icons', 'assets', 'js', 'svgSprite'),
+    parallel('sass:watch', 'pug:watch', 'images:watch', 'icons:watch', 'assets:watch', 'js:watch', 'svgSprite:watch'),
     'logger',
     'server',
   )
@@ -46,14 +50,14 @@ function dev() {
 function prod() {
   return series(
     'clean',
-    parallel('sass', 'pug', 'images', 'icons', 'assets', 'js'),
+    parallel('sass', 'pug', 'images', 'icons', 'assets', 'js', 'svgSprite'),
   )
 }
 
 function deploy() {
   return series(
     'clean',
-    parallel('sass', 'pug', 'images', 'icons', 'assets', 'js'),
+    parallel('sass', 'pug', 'images', 'icons', 'assets', 'js', 'svgSprite'),
     'deploy'
   )
 }
