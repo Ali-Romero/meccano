@@ -28,6 +28,7 @@ $ npm run serve
 $ mkdir project_name
 $ cd project_name
 $ git clone https://github.com/Ali-Romero/meccano.git .
+$ git checkout stylus // если нужен stylus
 $ rm -rf .git
 $ git init
 $ npm install
